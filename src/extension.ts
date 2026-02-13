@@ -2,8 +2,9 @@ import * as vscode from "vscode";
 import { ShellFormatProvider } from "@/format-provider";
 import { DEFAULT_SHFMT_VERSION, EXT_NAMESPACE, readSettings } from "@/settings";
 import { ShfmtManager } from "@/shfmt-manager";
+import packageJson from "../package.json";
 
-const OUTPUT_CHANNEL_NAME = "Shell Formatter";
+const OUTPUT_CHANNEL_NAME = packageJson.displayName;
 
 export function activate(context: vscode.ExtensionContext) {
   const output = vscode.window.createOutputChannel(OUTPUT_CHANNEL_NAME);
@@ -105,7 +106,7 @@ export function activate(context: vscode.ExtensionContext) {
           await shfmtManager.ensureManagedBinaryInstalled(s.version);
           log("Managed shfmt is installed.");
           void vscode.window.showInformationMessage(
-            `shfmt ${s.version} installed for Shell Format.`,
+            `shfmt ${s.version} installed for ${OUTPUT_CHANNEL_NAME}.`,
           );
         } catch (err: unknown) {
           log(`Install failed: ${getErrorMessage(err)}`);
@@ -125,7 +126,7 @@ export function activate(context: vscode.ExtensionContext) {
         const resolved = await resolveAndLogShfmtInfo();
         if (resolved) {
           void vscode.window.showInformationMessage(
-            `Shell Format shfmt: ${resolved.source} (${resolved.executablePath})`,
+            `${OUTPUT_CHANNEL_NAME} shfmt: ${resolved.source} (${resolved.executablePath})`,
           );
         } else {
           void vscode.window.showErrorMessage(

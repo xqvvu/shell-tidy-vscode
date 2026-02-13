@@ -1,9 +1,9 @@
 {
-  "name": "shell-formatter-vscode",
-  "displayName": "Shell Formatter",
+  "name": "shell-tidy-vscode",
+  "displayName": "Shell Tidy",
   "publisher": "xqvvu",
-  "version": "0.1.0",
-  "description": "A formatter for shell scripts, Dockerfile, gitignore, dotenv, /etc/hosts, jvmoptions, and other file types",
+  "version": "1.0.0",
+  "description": "Format shell and shell-like command text files with shfmt",
   "main": "dist/index.cjs",
   "type": "module",
   "categories": [
@@ -50,11 +50,11 @@
     "commands": [
       {
         "command": "shellFormatter.downloadShfmt",
-        "title": "Shell Formatter: Download shfmt"
+        "title": "Shell Tidy: Download shfmt"
       },
       {
         "command": "shellFormatter.showShfmtInfo",
-        "title": "Shell Formatter: Show shfmt Info"
+        "title": "Shell Tidy: Show shfmt Info"
       }
     ],
     "languages": [
@@ -140,7 +140,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Shell Formatter",
+      "title": "Shell Tidy",
       "properties": {
         "shellFormatter.executablePath": {
           "type": [
@@ -148,7 +148,7 @@
             "null"
           ],
           "default": null,
-          "markdownDescription": "Path to a `shfmt` executable. If set, Shell Format will use this binary instead of auto-downloading."
+          "markdownDescription": "Path to a `shfmt` executable. If set, Shell Tidy will use this binary instead of auto-downloading."
         },
         "shellFormatter.autoDownload": {
           "type": "boolean",
@@ -188,7 +188,7 @@
           "items": {
             "type": "string"
           },
-          "markdownDescription": "Language IDs for which Shell Format registers a formatter."
+          "markdownDescription": "Language IDs for which Shell Tidy registers a formatter."
         },
         "shellFormatter.logLevel": {
           "type": "string",
@@ -197,7 +197,7 @@
             "debug"
           ],
           "default": "info",
-          "markdownDescription": "Controls how much Shell Format logs to the Output panel."
+          "markdownDescription": "Controls how much Shell Tidy logs to the Output panel."
         }
       }
     }
@@ -208,17 +208,17 @@
   },
   "author": {
     "email": "whoeverimf5@gmail.com",
-    "name": "Ryo",
+    "name": "Ryo5",
     "url": "https://github.com/xqvvu"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xqvvu/shell-formatter-vscode",
-    "directory": "shell-formatter-vscode"
+    "url": "https://github.com/xqvvu/shell-tidy-vscode",
+    "directory": "shell-tidy-vscode"
   },
-  "homepage": "https://github.com/xqvvu/shell-formatter-vscode#readme",
-  "readme": "https://github.com/xqvvu/shell-formatter-vscode#readme",
-  "bugs": "https://github.com/xqvvu/shell-formatter-vscode/issues",
+  "homepage": "https://github.com/xqvvu/shell-tidy-vscode#readme",
+  "readme": "https://github.com/xqvvu/shell-tidy-vscode#readme",
+  "bugs": "https://github.com/xqvvu/shell-tidy-vscode/issues",
   "license": "MIT",
   "packageManager": "pnpm@10.29.3",
   "engines": {
@@ -231,10 +231,11 @@
     "build:watch": "tsdown --watch",
     "test": "vitest run",
     "test:watch": "vitest",
+    "changeset": "changeset",
     "check:biome": "biome check --no-errors-on-unmatched --write .",
     "check:types": "tsc --noEmit",
     "prepackage": "pnpm run -s check:types && pnpm run -s build",
-    "package": "vsce package --out shell-formatter.vsix",
+    "package": "vsce package --out shell-tidy.vsix",
     "postinstall": "lefthook install"
   },
   "devDependencies": {

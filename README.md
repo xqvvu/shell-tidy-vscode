@@ -1,28 +1,28 @@
 <p align="center">
-  <img src="./assets/logo.png" alt="Shell Formatter logo" width="180" />
+  <img src="./assets/logo.png" alt="Shell Tidy logo" width="180" />
 </p>
 
-<h1 align="center">Shell Formatter</h1>
+<h1 align="center">Shell Tidy</h1>
 
 <p align="center">
-  A modern formatter for shell-style text files in VS Code, powered by <code>shfmt</code>.
+  A modern formatter for shell and shell-like command text files in VS Code, powered by <code>shfmt</code>.
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode">
-    <img alt="Version" src="https://img.shields.io/visual-studio-marketplace/v/xqvvu.shell-formatter-vscode?style=flat-square" />
+  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
+    <img alt="Version" src="https://img.shields.io/visual-studio-marketplace/v/xqvvu.shell-tidy-vscode?style=flat-square" />
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode">
-    <img alt="Downloads" src="https://img.shields.io/visual-studio-marketplace/d/xqvvu.shell-formatter-vscode?style=flat-square" />
+  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
+    <img alt="Downloads" src="https://img.shields.io/visual-studio-marketplace/d/xqvvu.shell-tidy-vscode?style=flat-square" />
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode">
-    <img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/xqvvu.shell-formatter-vscode?style=flat-square" />
+  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
+    <img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/xqvvu.shell-tidy-vscode?style=flat-square" />
   </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode">
-    <img alt="Rating" src="https://img.shields.io/visual-studio-marketplace/stars/xqvvu.shell-formatter-vscode?style=flat-square" />
+  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
+    <img alt="Rating" src="https://img.shields.io/visual-studio-marketplace/stars/xqvvu.shell-tidy-vscode?style=flat-square" />
   </a>
-  <a href="https://github.com/xqvvu/shell-formatter-vscode/blob/main/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/xqvvu/shell-formatter-vscode?style=flat-square" />
+  <a href="https://github.com/xqvvu/shell-tidy-vscode/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/xqvvu/shell-tidy-vscode?style=flat-square" />
   </a>
   <a href="https://github.com/mvdan/sh/releases">
     <img alt="Bundled shfmt" src="https://img.shields.io/badge/shfmt-3.12.0-blue?style=flat-square" />
@@ -30,18 +30,18 @@
 </p>
 
 > [!NOTE]
-> `Shell Formatter` is currently at `0.1.0`.
+> `Shell Tidy` is currently at `0.1.0`.
 
 ## Get It on VS Code Marketplace
 
 Install from Marketplace:
 
-- https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode
+- https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode
 
 Or install locally from VSIX:
 
 ```bash
-code --install-extension shell-formatter.vsix
+code --install-extension shell-tidy.vsix
 ```
 
 ## Features
@@ -78,12 +78,12 @@ Format current document:
 - Linux/Windows: `Shift + Alt + F`
 - Command Palette: `Format Document`
 
-Optional: set Shell Formatter as default for shellscript:
+Optional: set Shell Tidy as default for shellscript:
 
 ```json
 {
   "[shellscript]": {
-    "editor.defaultFormatter": "xqvvu.shell-formatter-vscode"
+    "editor.defaultFormatter": "xqvvu.shell-tidy-vscode"
   }
 }
 ```
@@ -92,8 +92,8 @@ Optional: set Shell Formatter as default for shellscript:
 
 | Command | ID | Description |
 | --- | --- | --- |
-| `Shell Formatter: Download shfmt` | `shellFormatter.downloadShfmt` | Download managed `shfmt` for current platform |
-| `Shell Formatter: Show shfmt Info` | `shellFormatter.showShfmtInfo` | Show current `shfmt` source/path/version |
+| `Shell Tidy: Download shfmt` | `shellFormatter.downloadShfmt` | Download managed `shfmt` for current platform |
+| `Shell Tidy: Show shfmt Info` | `shellFormatter.showShfmtInfo` | Show current `shfmt` source/path/version |
 
 ## Configuration
 
@@ -138,18 +138,18 @@ Resolution order:
 2. `shfmt` from system `PATH`
 3. Managed `shfmt` binary downloaded by extension (`shellFormatter.autoDownload: true`)
 
-If all three fail, Shell Formatter reports an error and provides diagnostics/output logs.
+If all three fail, Shell Tidy reports an error and provides diagnostics/output logs.
 
 ## Troubleshooting
 
 - Set `shellFormatter.logLevel` to `debug`.
-- Open `View -> Output -> Shell Formatter`.
+- Open `View -> Output -> Shell Tidy`.
 - If your network blocks GitHub downloads, install `shfmt` manually and set `shellFormatter.executablePath`.
 
 ## Links
 
-- Source code: https://github.com/xqvvu/shell-formatter-vscode
-- Marketplace: https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-formatter-vscode
+- Source code: https://github.com/xqvvu/shell-tidy-vscode
+- Marketplace: https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode
 - shfmt: https://github.com/mvdan/sh
 
 ## License

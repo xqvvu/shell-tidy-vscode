@@ -9,9 +9,11 @@ export default defineConfig({
 
   format: "commonjs",
   target: "node18",
+
   inlineOnly: false,
   sourcemap: true,
   dts: false,
+  minify: true,
 
   external: ["vscode"],
 });

@@ -3,6 +3,7 @@
   "tasks": [
     {
       "label": "pnpm:build",
+      "detail": "Build Shell Tidy extension bundle",
       "type": "shell",
       "command": "pnpm -s run build",
       "problemMatcher": []

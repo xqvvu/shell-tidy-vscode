@@ -73,7 +73,7 @@ async function downloadToFile(options: DownloadOptions): Promise<void> {
         {
           headers: {
             // GitHub sometimes behaves oddly without a UA.
-            "User-Agent": "shell-formatter-vscode",
+            "User-Agent": "shell-tidy-vscode",
           },
         },
         (res) => {

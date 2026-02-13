@@ -9,7 +9,7 @@
   "categories": [
     "Formatters"
   ],
-  "icon": "assets/icon.png",
+  "icon": "assets/logo.png",
   "activationEvents": [
     "onLanguage:shellscript",
     "onLanguage:dotenv",

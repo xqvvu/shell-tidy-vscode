@@ -1,10 +1,12 @@
 {
-  "name": "shell-formatter",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "shell-formatter-vscode",
+  "version": "0.1.0-alpha.1",
+  "description": "A formatter for shell scripts, Dockerfile, gitignore, dotenv, /etc/hosts, jvmoptions, and other file types",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "dev": "tsx src/cmd.ts",
+    "dev": "tsx src/index.ts",
     "build": "tsdown",
     "build:watch": "tsdown --watch",
     "check:biome": "biome check --no-errors-on-unmatched --write .",

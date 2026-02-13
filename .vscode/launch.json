@@ -8,7 +8,7 @@
       "runtimeExecutable": "${execPath}",
       "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
       "preLaunchTask": "pnpm:build",
-      "outFiles": ["${workspaceFolder}/dist/**/*.cjs"],
+      "outFiles": ["${workspaceFolder}/dist/index.cjs"],
       "sourceMaps": true
     }
   ]

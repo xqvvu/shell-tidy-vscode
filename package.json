@@ -222,7 +222,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.29.3",
   "engines": {
-    "node": "22.x",
+    "node": ">=22",
     "pnpm": "10.x",
     "vscode": "^1.109.0"
   },

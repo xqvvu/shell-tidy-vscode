@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@one-ini/wasm':
+        specifier: ^0.2.0
+        version: 0.2.0
       editorconfig:
         specifier: ^3.0.1
         version: 3.0.1

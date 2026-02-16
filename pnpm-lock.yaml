@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      editorconfig:
+        specifier: ^3.0.1
+        version: 3.0.1
     devDependencies:
       '@biomejs/biome':
         specifier: 2.3.15
@@ -26,9 +30,6 @@ importers:
       '@vscode/vsce':
         specifier: 3.7.1
         version: 3.7.1
-      editorconfig:
-        specifier: ^3.0.1
-        version: 3.0.1
       lefthook:
         specifier: ^2.1.1
         version: 2.1.1

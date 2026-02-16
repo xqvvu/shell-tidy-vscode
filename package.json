@@ -238,7 +238,7 @@
   },
   "scripts": {
     "build": "tsdown",
-    "build:watch": "tsdown --watch",
+    "build:watch": "tsdown --watch --minify=false",
     "test": "vitest run",
     "test:watch": "vitest",
     "changeset": "changeset",
@@ -248,6 +248,9 @@
     "package": "vsce package --out shell-tidy.vsix",
     "postinstall": "lefthook install"
   },
+  "dependencies": {
+    "editorconfig": "^3.0.1"
+  },
   "devDependencies": {
     "@biomejs/biome": "2.3.15",
     "@changesets/changelog-github": "0.5.2",
@@ -255,7 +258,6 @@
     "@types/node": "^22.19.11",
     "@types/vscode": "^1.80.0",
     "@vscode/vsce": "3.7.1",
-    "editorconfig": "^3.0.1",
     "lefthook": "^2.1.1",
     "ovsx": "0.10.9",
     "tsdown": "^0.20.3",

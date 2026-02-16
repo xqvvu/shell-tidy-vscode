@@ -2,7 +2,7 @@
   "name": "shell-tidy-vscode",
   "displayName": "Shell Tidy",
   "publisher": "xqvvu",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Format shell and shell-like command text files with shfmt",
   "main": "dist/index.cjs",
   "type": "module",

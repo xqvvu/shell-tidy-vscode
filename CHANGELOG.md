@@ -1,5 +1,11 @@
 # shell-tidy-vscode
 
+## 1.1.1
+
+### Patch Changes
+
+- Fix extension activation by shipping `editorconfig` as a runtime dependency.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -15,5 +15,12 @@ export default defineConfig({
   dts: false,
   minify: true,
 
+  copy: [
+    {
+      from: "node_modules/.pnpm/@one-ini+wasm@0.2.0/node_modules/@one-ini/wasm/one_ini_bg.wasm",
+      to: "dist",
+    },
+  ],
+
   external: ["vscode"],
 });

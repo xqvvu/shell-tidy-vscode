@@ -2,5 +2,6 @@
 !assets/logo.png
 !LICENSE
 !dist/index.cjs
+!dist/one_ini_bg.wasm
 !package.json
 !README.md

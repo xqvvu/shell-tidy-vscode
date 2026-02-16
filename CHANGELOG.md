@@ -1,5 +1,11 @@
 # shell-tidy-vscode
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix VSIX startup by bundling required WebAssembly runtime asset for editorconfig support.
+
 ## 1.1.1
 
 ### Patch Changes

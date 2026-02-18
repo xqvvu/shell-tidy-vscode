@@ -9,21 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
-    <img alt="Version" src="https://img.shields.io/visual-studio-marketplace/v/xqvvu.shell-tidy-vscode?style=flat-square" />
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
-    <img alt="Downloads" src="https://img.shields.io/visual-studio-marketplace/d/xqvvu.shell-tidy-vscode?style=flat-square" />
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
-    <img alt="Installs" src="https://img.shields.io/visual-studio-marketplace/i/xqvvu.shell-tidy-vscode?style=flat-square" />
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=xqvvu.shell-tidy-vscode">
-    <img alt="Rating" src="https://img.shields.io/visual-studio-marketplace/stars/xqvvu.shell-tidy-vscode?style=flat-square" />
-  </a>
   <a href="https://github.com/xqvvu/shell-tidy-vscode/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/github/license/xqvvu/shell-tidy-vscode?style=flat-square" />
   </a>
+
   <a href="https://github.com/mvdan/sh/releases">
     <img alt="Bundled shfmt" src="https://img.shields.io/badge/shfmt-3.12.0-blue?style=flat-square" />
   </a>

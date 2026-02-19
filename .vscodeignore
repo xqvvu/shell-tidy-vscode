@@ -1,7 +1,7 @@
 **
-!assets/logo.png
-!LICENSE
 !dist/index.cjs
 !dist/one_ini_bg.wasm
+!assets/logo.png
 !package.json
 !README.md
+!LICENSE

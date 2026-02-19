@@ -41,6 +41,30 @@ describe("buildShfmtArgs fixture matrix", () => {
 });
 
 describe("buildShfmtArgs editorconfig integration", () => {
+  it("does not inject editorconfig-derived flags when disabled", () => {
+    const actual = buildShfmtArgs({
+      baseArgs: [],
+      document: {
+        languageId: "shellscript",
+        fileName: "/repo/demo.sh",
+        uriScheme: "file",
+      },
+      formatting: { insertSpaces: true, tabSize: 6 },
+      respectEditorConfig: false,
+      editorConfigApplyIgnore: true,
+      editorConfig: {
+        indentStyle: "space",
+        indentSize: 2,
+        shellVariant: "bash",
+        binaryNextLine: true,
+        keepPadding: true,
+      },
+    });
+
+    // Still follows VS Code formatting options, but does not map .editorconfig keys.
+    expect(actual).toEqual(["-i=6"]);
+  });
+
   it("applies editorconfig flags and filename context", () => {
     const actual = buildShfmtArgs({
       baseArgs: [],

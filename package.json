@@ -232,8 +232,6 @@
   "license": "MIT",
   "packageManager": "pnpm@10.29.3",
   "engines": {
-    "node": ">=22",
-    "pnpm": "10.x",
     "vscode": "^1.80.0"
   },
   "scripts": {

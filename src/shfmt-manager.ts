@@ -3,7 +3,10 @@ import fsp from "node:fs/promises";
 import path from "node:path";
 import type * as vscode from "vscode";
 import { findExecutableOnPath, substituteVariables } from "@/path-utils";
-import { installShfmtManagedBinary } from "@/shfmt-installer";
+import {
+  ShfmtDownloadError,
+  installShfmtManagedBinary,
+} from "@/shfmt-installer";
 
 /**
  * Where the `shfmt` executable was resolved from.
@@ -109,7 +112,15 @@ export class ShfmtManager {
       const ok = await isExecutable(managedPath);
       if (ok) return;
 
-      await installShfmtManagedBinary(version, managedPath, this.log);
+      try {
+        await installShfmtManagedBinary(version, managedPath, this.log);
+      } catch (err: unknown) {
+        // Log detailed error information
+        if (err instanceof ShfmtDownloadError) {
+          this.log(err.toDetailedString());
+        }
+        throw err;
+      }
     })();
 
     this.installPromisesByVersion.set(version, p);
@@ -123,6 +134,9 @@ export class ShfmtManager {
 }
 
 function getErrorMessage(err: unknown): string {
+  if (err instanceof ShfmtDownloadError) {
+    return err.toDetailedString();
+  }
   if (err instanceof Error) return err.message;
   return String(err);
 }

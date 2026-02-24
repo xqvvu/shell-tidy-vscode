@@ -7,6 +7,17 @@ export interface ShfmtRunResult {
   exitCode: number | null;
 }
 
+/**
+ * Executes shfmt with the given arguments and input text.
+ * Supports cancellation via VS Code's cancellation token.
+ *
+ * @param options - Configuration for running shfmt
+ * @param options.executablePath - Path to the shfmt executable
+ * @param options.args - Command-line arguments to pass to shfmt
+ * @param options.input - Input text to format (passed via stdin)
+ * @param options.token - Optional cancellation token
+ * @returns Promise resolving to stdout, stderr, and exit code
+ */
 export async function runShfmt(options: {
   executablePath: string;
   args: string[];

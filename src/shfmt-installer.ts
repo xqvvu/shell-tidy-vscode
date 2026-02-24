@@ -14,6 +14,13 @@ export interface DownloadOptions {
   log?: (line: string) => void;
 }
 
+/**
+ * Constructs the release filename for a specific shfmt version.
+ * Format: shfmt_v{version}_{platform}_{arch}{ext}
+ *
+ * @param version - shfmt version (with or without 'v' prefix)
+ * @returns Release filename for the current platform and architecture
+ */
 export function getShfmtReleaseFileName(version: string): string {
   const tag = version.startsWith("v") ? version : `v${version}`;
   const platform = getShfmtPlatform();
@@ -22,11 +29,25 @@ export function getShfmtReleaseFileName(version: string): string {
   return `shfmt_${tag}_${platform}_${arch}${ext}`;
 }
 
+/**
+ * Constructs the GitHub release download URL for a specific shfmt version.
+ *
+ * @param version - shfmt version (with or without 'v' prefix)
+ * @returns Full download URL for the shfmt binary
+ */
 export function getShfmtReleaseDownloadUrl(version: string): string {
   const tag = version.startsWith("v") ? version : `v${version}`;
   return `https://github.com/mvdan/sh/releases/download/${tag}/${getShfmtReleaseFileName(version)}`;
 }
 
+/**
+ * Downloads and installs a managed shfmt binary from GitHub releases.
+ * Uses atomic file operations (download to temp, then rename) for safety.
+ *
+ * @param version - shfmt version to install
+ * @param managedFilePath - Destination path for the installed binary
+ * @param log - Optional logging function
+ */
 export async function installShfmtManagedBinary(
   version: string,
   managedFilePath: string,

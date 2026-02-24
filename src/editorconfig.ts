@@ -3,6 +3,19 @@ import type { ShfmtArgEditorConfigLike } from "@/shfmt-args";
 
 const EDITORCONFIG_CACHE = new Map<string, editorconfig.ProcessedFileConfig>();
 
+/**
+ * Resolves and normalizes EditorConfig settings for a file.
+ * Maps EditorConfig properties to shfmt-compatible settings.
+ *
+ * Supported EditorConfig keys:
+ * - indent_style, indent_size
+ * - shell_variant
+ * - binary_next_line, switch_case_indent, space_redirects
+ * - keep_padding, function_next_line
+ *
+ * @param options - Configuration for EditorConfig resolution
+ * @returns Normalized EditorConfig settings or null if disabled/unavailable
+ */
 export async function resolveEditorConfigForShfmt(options: {
   enabled: boolean;
   fileName: string;

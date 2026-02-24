@@ -20,6 +20,18 @@ export interface ShfmtArgEditorConfigLike {
   functionNextLine?: boolean;
 }
 
+/**
+ * Builds the complete argument list for shfmt based on configuration,
+ * document properties, and EditorConfig settings.
+ *
+ * Precedence order:
+ * 1. User-provided args (shellTidy.args)
+ * 2. EditorConfig settings (when enabled)
+ * 3. VS Code formatting options (editor.insertSpaces, editor.tabSize)
+ *
+ * @param options - Configuration for building shfmt arguments
+ * @returns Array of command-line arguments for shfmt
+ */
 export function buildShfmtArgs(options: {
   baseArgs: string[];
   document: ShfmtArgDocumentLike;

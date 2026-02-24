@@ -32,6 +32,12 @@ export interface ShellFormatSettings {
   logLevel: LogLevel;
 }
 
+/**
+ * Reads and normalizes Shell Tidy configuration from VS Code settings.
+ * Filters out invalid values and applies defaults.
+ *
+ * @returns Normalized configuration object
+ */
 export function readSettings(): ShellFormatSettings {
   const cfg = vscode.workspace.getConfiguration(EXT_NAMESPACE);
 
@@ -64,6 +70,13 @@ export function readSettings(): ShellFormatSettings {
   };
 }
 
+/**
+ * Normalizes a string value by trimming whitespace.
+ * Returns null for non-strings or empty strings.
+ *
+ * @param value - Value to normalize
+ * @returns Trimmed string or null
+ */
 function normalizeOptionalString(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();

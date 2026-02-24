@@ -8,6 +8,12 @@ export type ShfmtPlatform =
 
 export type ShfmtArch = "amd64" | "arm64" | "arm" | "386";
 
+/**
+ * Maps Node.js platform identifier to shfmt platform name.
+ *
+ * @returns Platform identifier for shfmt binary downloads
+ * @throws Error if the current platform is not supported
+ */
 export function getShfmtPlatform(): ShfmtPlatform {
   switch (process.platform) {
     case "darwin":
@@ -29,6 +35,12 @@ export function getShfmtPlatform(): ShfmtPlatform {
   }
 }
 
+/**
+ * Maps Node.js architecture identifier to shfmt architecture name.
+ *
+ * @returns Architecture identifier for shfmt binary downloads
+ * @throws Error if the current architecture is not supported
+ */
 export function getShfmtArch(): ShfmtArch {
   switch (process.arch) {
     case "x64":
@@ -46,6 +58,11 @@ export function getShfmtArch(): ShfmtArch {
   }
 }
 
+/**
+ * Returns the appropriate executable extension for the current platform.
+ *
+ * @returns ".exe" on Windows, empty string on other platforms
+ */
 export function getShfmtExecutableExt(): string {
   return process.platform === "win32" ? ".exe" : "";
 }

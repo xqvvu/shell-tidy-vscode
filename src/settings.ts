@@ -59,14 +59,12 @@ export function readSettings(): ShellFormatSettings {
   return {
     executablePath: normalizeOptionalString(executablePath),
     args: Array.isArray(args) ? args.filter((x) => typeof x === "string") : [],
-    enabledLanguages: Array.isArray(enabledLanguages)
-      ? enabledLanguages.filter((x) => typeof x === "string")
-      : [...DEFAULT_ENABLED_LANGUAGES],
+    enabledLanguages: normalizeEnabledLanguages(enabledLanguages),
     autoDownload,
     shfmtVersionOverride: normalizeOptionalString(shfmtVersionOverride),
     respectEditorConfig,
     editorConfigApplyIgnore,
-    logLevel,
+    logLevel: normalizeLogLevel(logLevel),
   };
 }
 
@@ -81,4 +79,27 @@ function normalizeOptionalString(value: unknown): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();
   return trimmed.length === 0 ? null : trimmed;
+}
+
+function normalizeEnabledLanguages(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [...DEFAULT_ENABLED_LANGUAGES];
+  }
+
+  const seen = new Set<string>();
+  const result: string[] = [];
+
+  for (const item of value) {
+    if (typeof item !== "string") continue;
+    const languageId = item.trim();
+    if (languageId.length === 0 || seen.has(languageId)) continue;
+    seen.add(languageId);
+    result.push(languageId);
+  }
+
+  return result;
+}
+
+function normalizeLogLevel(value: unknown): LogLevel {
+  return value === "debug" ? "debug" : "info";
 }

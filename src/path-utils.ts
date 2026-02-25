@@ -27,13 +27,15 @@ export function substituteVariables(inputPath: string): string {
  */
 export function findExecutableOnPath(toolName: string): string | null {
   const corrected = correctBinName(toolName);
-  if (path.isAbsolute(corrected)) return corrected;
+  if (path.isAbsolute(corrected)) {
+    return isExecutableFile(corrected) ? corrected : null;
+  }
 
   const rawPath = process.env.PATH ?? "";
   const parts = rawPath.split(path.delimiter).filter(Boolean);
   for (const p of parts) {
     const candidate = path.join(p, corrected);
-    if (isFile(candidate)) return candidate;
+    if (isExecutableFile(candidate)) return candidate;
   }
   return null;
 }
@@ -45,9 +47,15 @@ function correctBinName(binName: string): string {
   return binName;
 }
 
-function isFile(filePath: string): boolean {
+function isExecutableFile(filePath: string): boolean {
   try {
-    return fs.statSync(filePath).isFile();
+    if (!fs.statSync(filePath).isFile()) return false;
+    if (process.platform === "win32") {
+      fs.accessSync(filePath, fs.constants.F_OK);
+    } else {
+      fs.accessSync(filePath, fs.constants.X_OK);
+    }
+    return true;
   } catch {
     return false;
   }

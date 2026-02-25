@@ -130,16 +130,13 @@ export async function installShfmtManagedBinary(
     if (err instanceof ShfmtDownloadError) {
       throw err;
     }
-    throw new ShfmtDownloadError(
-      `Failed to download shfmt ${version}`,
-      {
-        version,
-        url,
-        platform,
-        arch,
-        originalError: err,
-      },
-    );
+    throw new ShfmtDownloadError(`Failed to download shfmt ${version}`, {
+      version,
+      url,
+      platform,
+      arch,
+      originalError: err,
+    });
   }
 }
 

@@ -57,7 +57,7 @@ describe("readSettings", () => {
     mockConfiguration({
       executablePath: "  /opt/shfmt  ",
       args: ["-mn", 123, "-ci"],
-      enabledLanguages: ["shellscript", "dotenv", 7],
+      enabledLanguages: [" shellscript ", "dotenv", "dotenv", " ", 7],
       autoDownload: false,
       "shfmt.version": "  3.10.0 ",
       respectEditorConfig: true,
@@ -77,5 +77,15 @@ describe("readSettings", () => {
       editorConfigApplyIgnore: true,
       logLevel: "debug",
     });
+  });
+
+  it('falls back to "info" for unknown logLevel values', () => {
+    mockConfiguration({
+      logLevel: "trace",
+    });
+
+    const actual = readSettings();
+
+    expect(actual.logLevel).toBe("info");
   });
 });

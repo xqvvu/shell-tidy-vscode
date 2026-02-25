@@ -4,8 +4,8 @@ import path from "node:path";
 import type * as vscode from "vscode";
 import { findExecutableOnPath, substituteVariables } from "@/path-utils";
 import {
-  ShfmtDownloadError,
   installShfmtManagedBinary,
+  ShfmtDownloadError,
 } from "@/shfmt-installer";
 
 /**

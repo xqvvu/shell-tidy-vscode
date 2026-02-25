@@ -27,7 +27,12 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ingore-scripts
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Validate project
+        run: |
+          pnpm run -s check:types
+          pnpm run -s test
 
       - name: Consume changesets
         run: pnpm changeset version
